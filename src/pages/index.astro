@@ -1,33 +1,39 @@
 ---
 import "../style/global.css"
-
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Footer from '../components/Footer.astro';
-import Skills from '../components/Skills.astro';
-import Project from '../components/Project.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Project from "../components/Project.astro";
+import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-	<Nav/> 
-	<main>
-		<Hero/>
-		<About/>
-		<Project/>
-		<Skills/>
-	</main>
-	<Footer/>
-</body>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfian Rafa | Portfolio</title>
+  </head>
+
+  <body class="min-h-screen bg-black text-white">
+
+    <main class="mx-auto w-full max-w-170 px-4 sm:px-5">
+
+      <div class="flex flex-col gap-3">
+
+        <Nav />
+        <Hero />
+        <About />
+        <Project />
+        <Skills />
+
+        <div class="h-24"></div>
+
+        <Footer />
+
+      </div>
+
+    </main>
+
+  </body>
 </html>

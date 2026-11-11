@@ -1,0 +1,97 @@
+
+<div class="flex items-center justify-between w-full rounded-full bg-[#1f1f1f] px-7 py-5 text-gray-300">
+  <!-- Location -->
+  <div class="flex items-center gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+      viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+    <span>Indonesia, Jawa Timur</span>
+  </div>
+
+  <!-- Clock & Theme -->
+  <div class="flex items-center gap-4">
+    <span id="clock" class="tabular-nums">00:00:00 AM</span>
+
+    <button
+      id="theme-toggle"
+      aria-label="Ganti tema"
+      class="transition-transform duration-300 hover:rotate-12"
+    >
+      <!-- Moon -->
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg"
+        width="28" height="28" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472
+          c.405-.022.617.463.402.807a6.5 6.5 0 0 0
+          8.268 8.268c.344-.215.829-.003.803.397Z"/>
+      </svg>
+
+      <!-- Sun -->
+      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg"
+        width="28" height="28" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round"
+        class="hidden">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42
+          m11.3 11.3 1.42 1.42M2 12h2m16 0h2
+          M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // JAM DIGITAL
+  const clock = document.getElementById("clock");
+
+  function updateClock() {
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("en-US", {
+      timeZone: "Asia/Jakarta",
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // THEME TOGGLE
+  const toggle = document.getElementById("theme-toggle");
+  const moon = document.getElementById("moon-icon");
+  const sun = document.getElementById("sun-icon");
+
+  function updateTheme() {
+    const isLight = document.documentElement.classList.contains("light");
+
+    moon.classList.toggle("hidden", isLight);
+    sun.classList.toggle("hidden", !isLight);
+  }
+
+  // Ambil tema yang tersimpan
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    document.documentElement.classList.add("light");
+  }
+
+  updateTheme();
+
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("light");
+
+    const isLight = document.documentElement.classList.contains("light");
+
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+
+    updateTheme();
+  });
+</script>

@@ -6,6 +6,7 @@ import About from "../components/About.astro";
 import Project from "../components/Project.astro";
 import Skills from "../components/Skills.astro";
 import Footer from "../components/Footer.astro";
+import Clock from "../components/clock.astro";
 ---
 
 <html lang="id">
@@ -16,12 +17,13 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body class="min-h-screen bg-black text-white">
-
+ 
     <main class="mx-auto w-full max-w-170 px-4 sm:px-5">
-
+ 
       <div class="flex flex-col gap-3">
 
         <Nav />
+        <Clock/>
         <Hero />
         <About />
         <Project />

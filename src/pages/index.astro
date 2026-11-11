@@ -1,12 +1,12 @@
 ---
-import "../style/global.css"
-import Nav from "../components/Nav.astro";
+import "../style/global.css";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Project from "../components/Project.astro";
+// import Project from "../components/Project.astro";
 import Skills from "../components/Skills.astro";
 import Footer from "../components/Footer.astro";
 import Clock from "../components/clock.astro";
+import Navbar from "../components/nav.astro";
 ---
 
 <html lang="id">
@@ -16,17 +16,16 @@ import Clock from "../components/clock.astro";
     <title>Alfian Rafa | Portfolio</title>
   </head>
 
-  <body class="min-h-screen bg-black text-white">
- 
-    <main class="mx-auto w-full max-w-170 px-4 sm:px-5">
+  <body class="min-h-screen">
+    <Navbar/>
+    <main class="mx-auto w-full max-w-170 px-4 sm:px-5 sm:pt-8 pt-7" >
  
       <div class="flex flex-col gap-3">
 
-        <Nav />
         <Clock/>
         <Hero />
         <About />
-        <Project />
+        <!-- <Project /> -->
         <Skills />
 
         <div class="h-24"></div>

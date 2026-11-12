@@ -1,0 +1,161 @@
+---
+import "../style/global.css";
+import Navbar from "../components/nav.astro";
+import C from "../components/clock.astro";
+
+// Data Contact
+const contacts = [
+  {
+    name: "GitHub",
+    username: "alfianRapa",
+    logo: "https://cdn.simpleicons.org/github",
+    link: "https://github.com/alfianRapa",
+  },
+  {
+    name: "Discord",
+    username: "rapskibidi_72794",
+    logo: "https://cdn.simpleicons.org/discord",
+    link: "https://discord.com/app",
+  },
+  {
+    name: "Instagram",
+    username: "alfianRApa",
+    logo: "https://cdn.simpleicons.org/instagram",
+    link: "https://instagram.com/alfianRApa",
+  },
+  {
+    name: "Roblox",
+    username: "Rapa",
+    logo: "https://cdn.simpleicons.org/roblox",
+    link: "https://www.roblox.com/",
+  },
+];
+
+// Data Games
+const games = [
+  {
+    name: "Mobile Legends",
+    id: "ISI_ID_ML",
+    server: "ISI_SERVER_ID",
+    logo: "https://cdn.simpleicons.org/mobilelegends",
+    link: "https://www.mobilelegends.com/",
+  },
+  {
+    name: "Free Fire",
+    id: "ISI_UID_FF",
+    server: "",
+    logo: "https://cdn.simpleicons.org/garena",
+    link: "https://ff.garena.com/",
+  },
+  {
+    name: "Roblox",
+    id: "Rapa",
+    server: "",
+    logo: "https://cdn.simpleicons.org/roblox",
+    link: "https://www.roblox.com/",
+  },
+];
+---
+
+<Navbar />
+
+<main class="mt-3 w-full rounded-2xl bg-[var(--card)] p-7 text-[var(--text)] sm:p-5">
+
+  <C />
+
+  <!-- Contact Heading -->
+  <div class="mb-5">
+    <h1 class="text-2xl font-bold">Contact</h1>
+    <p class="mt-1 text-sm text-[var(--secondary)]">
+      Find me on these platforms.
+    </p>
+  </div>
+
+  <!-- Contact List -->
+  <div class="flex flex-col gap-3">
+
+    {contacts.map((contact) => (
+      <a
+        href={contact.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Kunjungi ${contact.name}`}
+        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-6"
+      >
+        <!-- Logo dan Nama -->
+        <div class="flex min-w-0 items-center gap-3">
+          <img
+            src={contact.logo}
+            alt={contact.name}
+            class="h-7 w-7 shrink-0 object-contain"
+          />
+
+          <span class="text-base text-[var(--secondary)] sm:text-lg">
+            {contact.name}
+          </span>
+        </div>
+
+        <!-- Username -->
+        <span class="break-all text-right text-base font-medium sm:text-xl">
+          {contact.username}
+        </span>
+      </a>
+    ))}
+
+  </div>
+
+  <!-- Games Heading -->
+  <div class="mb-5 mt-8">
+    <h2 class="text-2xl font-bold">My Games</h2>
+    <p class="mt-1 text-sm text-[var(--secondary)]">
+      Games I play and my in-game accounts.
+    </p>
+  </div>
+
+  <!-- Games List -->
+  <div class="flex flex-col gap-3">
+
+    {games.map((game) => (
+      <a
+        href={game.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Kunjungi ${game.name}`}
+        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-5"
+      >
+        <!-- Game Logo -->
+        <div class="flex min-w-0 items-center gap-3">
+          <img
+            src={game.logo}
+            alt={game.name}
+            class="h-9 w-9 shrink-0 object-contain"
+          />
+
+          <span class="text-base text-[var(--secondary)] sm:text-lg">
+            {game.name}
+          </span>
+        </div>
+
+        <!-- Game ID -->
+        <div class="min-w-0 text-right">
+          <p class="break-all text-base font-medium sm:text-xl">
+            {game.id}
+          </p>
+
+          {game.server && (
+            <p class="mt-1 text-xs text-[var(--secondary)] sm:text-sm">
+              Server: {game.server}
+            </p>
+          )}
+        </div>
+      </a>
+    ))}
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-6 text-center text-sm text-[var(--secondary)]">
+    2026 © Built by Rapaa
+  </footer>
+
+</main>

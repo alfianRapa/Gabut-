@@ -1,0 +1,138 @@
+---
+const categories = [
+  {
+    title: "Languages",
+    tools: [
+      {
+        name: "JavaScript",
+        logo: "javascript/javascript-original.svg",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+      {
+        name: "Python",
+        logo: "python/python-original.svg",
+        link: "https://www.python.org/",
+      },
+      {
+        name: "PHP",
+        logo: "php/php-original.svg",
+        link: "https://www.php.net/",
+      },
+    ],
+  },
+  {
+    title: "Frameworks & Styling",
+    tools: [
+      {
+        name: "Node.js",
+        logo: "nodejs/nodejs-original.svg",
+        link: "https://nodejs.org/",
+      },
+      {
+        name: "Astro",
+        logo: "astro/astro-original.svg",
+        link: "https://astro.build/",
+      },
+      {
+        name: "Laravel",
+        logo: "laravel/laravel-original.svg",
+        link: "https://laravel.com/",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "tailwindcss/tailwindcss-original.svg",
+        link: "https://tailwindcss.com/",
+      },
+    ],
+  },
+  {
+    title: "Databases",
+    tools: [
+      {
+        name: "PostgreSQL",
+        logo: "postgresql/postgresql-original.svg",
+        link: "https://www.postgresql.org/",
+      },
+      {
+        name: "MySQL",
+        logo: "mysql/mysql-original.svg",
+        link: "https://www.mysql.com/",
+      },
+    ],
+  },
+  {
+    title: "Development Tools",
+    tools: [
+      {
+        name: "Laragon",
+        logo: "laragon",
+        link: "https://laragon.org/",
+      },
+    ],
+  },
+];
+---
+
+<section class="w-full rounded-2xl bg-[var(--card)] p-6 text-[var(--text)] ">
+
+<div class="mb-6 space-y-1.5">
+  <span
+  class="inline-flex items-center !rounded-full border border-[var(--muted)]/30 bg-[var(--badge)] px-3 py-1 text-[10px] font-semibold text-[var(--text)] shadow-sm sm:px-4 sm:py-1.5 sm:text-xs md:px-5 md:text-sm">
+    Skills
+  </span>
+  <p class="text-sm text-[var(--secondary)] md:text-base">
+    Technologies I work with and actively explore.
+  </p>
+</div>
+
+  <!-- Categories -->
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+    {categories.map((category) => (
+      <div class="rounded-xl bg-[color-mix(in_srgb,var(--text)_5%,transparent)] p-4">
+
+        <h3 class="mb-4 font-semibold">
+          {category.title}
+        </h3>
+
+        <div class="grid grid-cols-3 gap-3">
+
+          {category.tools.map((tool) => (
+            <a
+              href={tool.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Buka website ${tool.name}`}
+              aria-label={`Buka website resmi ${tool.name}`}
+              class="flex flex-col items-center justify-center gap-2 rounded-xl bg-[color-mix(in_srgb,var(--text)_5%,transparent)] p-3 transition hover:bg-[color-mix(in_srgb,var(--text)_12%,transparent)] hover:-translate-y-1"
+            >
+
+              {tool.name === "Laragon" ? (
+                <img
+                  src="https://www.google.com/s2/favicons?domain=laragon.org&sz=128"
+                  alt="Laragon"
+                  class="h-9 w-9 object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <img
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tool.logo}`}
+                  alt={tool.name}
+                  class="h-9 w-9 object-contain"
+                  loading="lazy"
+                />
+              )}
+
+              <span class="text-center text-xs font-medium">
+                {tool.name}
+              </span>
+
+            </a>
+          ))}
+
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>

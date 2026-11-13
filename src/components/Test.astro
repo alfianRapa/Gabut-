@@ -1,148 +1,83 @@
-
 ---
-import C from "./clock.astro";
-
-// Data Contact
-const contacts = [
+const card = [
   {
-    name: "GitHub",
-    username: "alfianRapa",
-    logo: "https://cdn.simpleicons.org/github",
-    link: "https://github.com/alfianRapa",
+    title: "Shinigami",
+    username: "rafa syf",
+    logo: "https://avatars.githubusercontent.com/u/101159410?s=200&v=4",
+    type: "Reading Platform",
+    description: "Website baca manhwa lengkap ygy",
+    link: "https://11.shinigami.asia/",
   },
   {
-    name: "Discord",
-    username: "rapskibidi_72794",
-    logo: "https://cdn.simpleicons.org/discord",
-    link: "https://discord.com/app",
+    title: "Animein",
+    username: "Rapaa17",
+    logo: "data:image/jpeg;base64,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",
+    type: "Anime Streaming",
+    description: "Tempat nonton anime.",
+    link: "https://animeinweb.com/",
   },
   {
-    name: "Instagram",
-    username: "alfianRApa",
-    logo: "https://cdn.simpleicons.org/instagram",
-    link: "https://instagram.com/alfianRApa",
-  },
-];
-
-// Data Games
-const games = [
-  {
-    name: "Mobile Legends",
-    id: "— Tsugumi Seishiro",
-    server: "(18523)",
-    logo: "https://i.pinimg.com/736x/d9/a1/69/d9a169b14075e076a38698a0fd1e0b7e.jpg",
-    link: "https://www.mobilelegends.com/",
-  },
-  {
-    name: "Free Fire",
-    id: "Rapa17",
-    server: "1684521114",
-    logo: "https://i.pinimg.com/736x/a8/09/02/a80902de16e631ae483dfdac6358c98e.jpg",
-    link: "https://ff.garena.com/",
-  },
-  {
-    name: "Roblox",
-    id: "Rapa",
-    server: "",
-    logo: "https://cdn.simpleicons.org/roblox",
-    link: "https://www.roblox.com/",
+    title: "Project",
+    username: "My Project",
+    description: "Kumpulan project yang pernah dibuat.",
+    logo: "",
+    type: "Development",
+    link: "#projects",
   },
 ];
 ---
 
-<section class="w-full rounded-2xl bg-[var(--card)] p-4 text-[var(--text)] sm:p-5">
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 w-full">
 
-  <C />
+  {card.map((item) => (
+    <a href={item.link} target="_blank" rel="noopener noreferrer" class="block rounded-2xl bg-[var(--card)] p-4 text-[var(--text)] transition-all duration-300 hover:-translate-y-1 hover:ring-1 hover:ring-[var(--accent)]"
+    >
+      <div class="flex items-center justify-between mb-5">
 
-  <!-- Contact Heading -->
-  <div class="mb-5">
-    <h1 class="text-2xl font-bold">Contact</h1>
-    <p class="mt-1 text-sm text-[var(--secondary)]">
-      Find me on these platforms.
-    </p>
-  </div>
+        <div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-[var(--accent)]/10">
 
-  <!-- Contact List -->
-  <div class="flex flex-col gap-3">
-
-    {contacts.map((contact) => (
-      <a
-        href={contact.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Kunjungi ${contact.name}`}
-        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-6"
-      >
-        <div class="flex min-w-0 items-center gap-3">
-          <img
-            src={contact.logo}
-            alt={contact.name}
-            class="h-7 w-7 shrink-0 object-contain"
-          />
-
-          <span class="text-base text-[var(--secondary)] sm:text-lg">
-            {contact.name}
-          </span>
-        </div>
-
-        <span class="break-all text-right text-base font-medium sm:text-xl">
-          {contact.username}
-        </span>
-      </a>
-    ))}
-
-  </div>
-
-  <!-- Games Heading -->
-  <div class="mb-5 mt-23">
-    <h2 class="text-2xl font-bold">My Games</h2>
-    <p class="mt-1 text-sm text-[var(--secondary)]">
-      Games I play and my in-game accounts.
-    </p>
-  </div>
-
-  <!-- Games List -->
-  <div class="flex flex-col gap-3">
-
-    {games.map((game) => (
-      <a
-        href={game.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Kunjungi ${game.name}`}
-        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-5"
-      >
-        <div class="flex min-w-0 items-center gap-3">
-          <img
-            src={game.logo}
-            alt={game.name}
-            class="h-9 w-9 shrink-0 object-contain"
-          />
-
-          <span class="text-base text-[var(--secondary)] sm:text-lg">
-            {game.name}
-          </span>
-        </div>
-
-        <div class="min-w-0 text-right">
-          <p class="break-all text-base font-medium sm:text-xl">
-            {game.id}
-          </p>
-
-          {game.server && (
-            <p class="mt-1 text-xs text-[var(--secondary)] sm:text-sm">
-              Server: {game.server}
-            </p>
+          {item.logo ? (
+            <img
+              src={item.logo}
+              alt={`Logo ${item.title}`}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <span class="text-xl font-bold text-[var(--accent)]">
+              {item.title.charAt(0)}
+            </span>
           )}
+
         </div>
-      </a>
-    ))}
 
-  </div>
+        <span class="text-xs text-[var(--muted)]">
+          {item.type}
+        </span>
 
-  <!-- Footer -->
-  <footer class="mt-6 text-center text-sm text-[var(--secondary)]">
-    2026 © Built by Rapaa
-  </footer>
+      </div>
 
-</section>
+      <div class="flex flex-col gap-1">
+
+        <h2 class="font-semibold text-base">
+          {item.title}
+        </h2>
+
+        <p class="text-xs text-[var(--accent)]">
+          {item.username}
+        </p>
+
+        <p class="mt-2 text-sm text-[var(--secondary)]">
+          {item.description}
+        </p>
+
+        <p class="mt-3 text-xs text-[var(--accent)]">
+          Visit Website ↗
+        </p>
+
+      </div>
+
+    </a>
+  ))}
+
+</div>

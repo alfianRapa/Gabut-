@@ -1,43 +1,21 @@
 ---
-import "../style/global.css";
+import PageLayout from "../layouts/Layout.astro";
+
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-// import Project from "../components/Project.astro";
 import Skills from "../components/Skills.astro";
+import Contact from "../components/co.astro";
 import Footer from "../components/Footer.astro";
 import Clock from "../components/clock.astro";
-import Navbar from "../components/nav.astro";
-import T from "../components/test.astro";
 ---
 
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alfian Rafa | Portfolio</title>
-  </head>
+<PageLayout title="Alfian Rafa | Portfolio">
 
-  <body class="min-h-screen">
-    <Navbar/>
-    <main class="mx-auto w-full max-w-170 px-4 sm:px-5 sm:pt-8 pt-7" >
- 
-      <div class="flex flex-col gap-3">
+  <Clock />
+  <Hero />
+  <About />
+  <Skills />
+  <Contact />
+  <Footer />
 
-        <Clock/>
-        <Hero />
-        <About />
-        <T/>
-        <Skills />
-
-        <div class="h-24"></div>
-
-        <Footer />
- <p class="mt-1 text-center text-sm text-[var(--secondary)]">
-    2026 © Built by Rapaa
- </p>
-      </div>
-     
-    </main>
-
-  </body>
-</html>
+</PageLayout>

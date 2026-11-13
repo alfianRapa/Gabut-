@@ -1,7 +1,6 @@
+
 ---
-import "../style/global.css";
-import Navbar from "../components/nav.astro";
-import C from "../components/clock.astro";
+import C from "./clock.astro";
 
 // Data Contact
 const contacts = [
@@ -23,7 +22,6 @@ const contacts = [
     logo: "https://cdn.simpleicons.org/instagram",
     link: "https://instagram.com/alfianRApa",
   },
-  
 ];
 
 // Data Games
@@ -51,20 +49,8 @@ const games = [
   },
 ];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-    
-<div class="mx-auto w-full px-8 sm:px-6 lg:px-8">
 
-<Navbar />
-
-<main class="mt-3 w-full rounded-2xl bg-[var(--card)] p-4 text-[var(--text)] sm:p-5">
+<section class="w-full rounded-2xl bg-[var(--card)] p-4 text-[var(--text)] sm:p-5">
 
   <C />
 
@@ -87,7 +73,6 @@ const games = [
         aria-label={`Kunjungi ${contact.name}`}
         class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-6"
       >
-        <!-- Logo dan Nama -->
         <div class="flex min-w-0 items-center gap-3">
           <img
             src={contact.logo}
@@ -100,7 +85,6 @@ const games = [
           </span>
         </div>
 
-        <!-- Username -->
         <span class="break-all text-right text-base font-medium sm:text-xl">
           {contact.username}
         </span>
@@ -128,7 +112,6 @@ const games = [
         aria-label={`Kunjungi ${game.name}`}
         class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-5"
       >
-        <!-- Game Logo -->
         <div class="flex min-w-0 items-center gap-3">
           <img
             src={game.logo}
@@ -141,7 +124,6 @@ const games = [
           </span>
         </div>
 
-        <!-- Game ID -->
         <div class="min-w-0 text-right">
           <p class="break-all text-base font-medium sm:text-xl">
             {game.id}
@@ -163,7 +145,4 @@ const games = [
     2026 © Built by Rapaa
   </footer>
 
-</main>
-</div>
-</body>
-</html>
+</section>

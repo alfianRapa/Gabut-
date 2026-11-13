@@ -1,6 +1,5 @@
 ---
-import "../style/global.css";
-import Navbar from "../components/nav.astro";
+import PageLayout from "../layouts/Layout.astro";
 import C from "../components/clock.astro";
 
 const projects = [
@@ -15,37 +14,27 @@ const projects = [
   },
 ];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-<div class="mx-auto w-full px-3 sm:px-4 lg:px-6">
 
-  <Navbar />
+<PageLayout title="Projects | Alfian Rafa">
 
-  <main
+  <section
     id="projects"
-    class="mt-3 w-full rounded-2xl bg-[var(--card)] p-3 text-[var(--text)] sm:p-5"
+    class="w-full rounded-2xl bg-[var(--card)] p-3 text-[var(--text)] sm:p-5"
   >
+
     <C />
 
-    <!-- Heading -->
     <div class="mb-4">
       <span class="inline-block rounded-lg bg-[color-mix(in_srgb,var(--text)_8%,transparent)] px-3 py-2 text-base font-semibold">
         Projects
       </span>
     </div>
 
-    <!-- Project List -->
     <div class="flex flex-col gap-4">
 
       {projects.map((project) => (
         <article class="rounded-xl bg-[color-mix(in_srgb,var(--text)_5%,transparent)] p-3 sm:p-4">
+
           <!-- Image -->
           <div class="h-36 w-full overflow-hidden rounded-lg bg-white sm:h-60 md:h-64">
             <img
@@ -55,6 +44,7 @@ const projects = [
               class="h-full w-full object-contain"
             />
           </div>
+
           <!-- Project Information -->
           <div class="mt-4 space-y-2">
 
@@ -106,9 +96,7 @@ const projects = [
       ))}
 
     </div>
-  </main>
 
-</div>
+  </section>
 
-</body>
-</html>
+</PageLayout>

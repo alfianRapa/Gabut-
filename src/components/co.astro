@@ -1,0 +1,142 @@
+
+---
+import C from "./clock.astro";
+
+// Data Contact
+const contacts = [
+  {
+    name: "GitHub",
+    username: "alfianRapa",
+    logo: "https://cdn.simpleicons.org/github",
+    link: "https://github.com/alfianRapa",
+  },
+  {
+    name: "Discord",
+    username: "rapskibidi_72794",
+    logo: "https://cdn.simpleicons.org/discord",
+    link: "https://discord.com/app",
+  },
+  {
+    name: "Instagram",
+    username: "alfianRApa",
+    logo: "https://cdn.simpleicons.org/instagram",
+    link: "https://instagram.com/alfianRApa",
+  },
+];
+
+// Data Games
+const games = [
+  {
+    name: "Mobile Legends",
+    id: "— Tsugumi Seishiro",
+    server: "(18523)",
+    logo: "https://i.pinimg.com/736x/d9/a1/69/d9a169b14075e076a38698a0fd1e0b7e.jpg",
+    link: "https://www.mobilelegends.com/",
+  },
+  {
+    name: "Free Fire",
+    id: "Rapa17",
+    server: "1684521114",
+    logo: "https://i.pinimg.com/736x/a8/09/02/a80902de16e631ae483dfdac6358c98e.jpg",
+    link: "https://ff.garena.com/",
+  },
+  {
+    name: "Roblox",
+    id: "Rapa",
+    server: "",
+    logo: "https://cdn.simpleicons.org/roblox",
+    link: "https://www.roblox.com/",
+  },
+];
+---
+
+<section class="w-full rounded-2xl bg-[var(--card)] p-4 text-[var(--text)] sm:p-5">
+
+  <C />
+
+  <!-- Contact Heading -->
+  <div class="mb-5">
+    <h1 class="text-2xl font-bold">Contact</h1>
+    <p class="mt-1 text-sm text-[var(--secondary)]">
+      Find me on these platforms.
+    </p>
+  </div>
+
+  <!-- Contact List -->
+  <div class="flex flex-col gap-3">
+
+    {contacts.map((contact) => (
+      <a
+        href={contact.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Kunjungi ${contact.name}`}
+        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-6"
+      >
+        <div class="flex min-w-0 items-center gap-3">
+          <img
+            src={contact.logo}
+            alt={contact.name}
+            class="h-7 w-7 shrink-0 object-contain"
+          />
+
+          <span class="text-base text-[var(--secondary)] sm:text-lg">
+            {contact.name}
+          </span>
+        </div>
+
+        <span class="break-all text-right text-base font-medium sm:text-xl">
+          {contact.username}
+        </span>
+      </a>
+    ))}
+
+  </div>
+
+  <!-- Games Heading -->
+  <div class="mb-5 mt-23">
+    <h2 class="text-2xl font-bold">My Games</h2>
+    <p class="mt-1 text-sm text-[var(--secondary)]">
+      Games I play and my in-game accounts.
+    </p>
+  </div>
+
+  <!-- Games List -->
+  <div class="flex flex-col gap-3">
+
+    {games.map((game) => (
+      <a
+        href={game.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Kunjungi ${game.name}`}
+        class="flex min-h-20 items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--text)_12%,transparent)] px-4 py-4 transition hover:bg-[color-mix(in_srgb,var(--text)_5%,transparent)] sm:px-5"
+      >
+        <div class="flex min-w-0 items-center gap-3">
+          <img
+            src={game.logo}
+            alt={game.name}
+            class="h-9 w-9 shrink-0 object-contain"
+          />
+
+          <span class="text-base text-[var(--secondary)] sm:text-lg">
+            {game.name}
+          </span>
+        </div>
+
+        <div class="min-w-0 text-right">
+          <p class="break-all text-base font-medium sm:text-xl">
+            {game.id}
+          </p>
+
+          {game.server && (
+            <p class="mt-1 text-xs text-[var(--secondary)] sm:text-sm">
+              Server: {game.server}
+            </p>
+          )}
+        </div>
+      </a>
+    ))}
+
+  </div>
+</section>

@@ -1,5 +1,5 @@
 ---
- const projects = [
+const projects = [
   {
     id: 1,
     title: "Ngecor.id",
@@ -9,8 +9,27 @@
     tags: ["HTML", "CSS", "JavaScript", "Tailwind"],
     link: "https://ngecorid.vercel.app/",
   },
+  {
+  id: 2,
+  title: "Web Toko",
+  description:
+    "Website toko online yang menampilkan berbagai produk dengan tampilan antarmuka sederhana dan responsif.",
+  image: "/project/tokoKita.png",
+  tags: ["HTML", "CSS", "JavaScript"],
+  link: "https://web-toko-seven.vercel.app/",
+},
+{
+  id: 3,
+  title: "Kalkulator",
+  description:
+    "Aplikasi kalkulator berbasis web untuk melakukan perhitungan matematika dasar dengan antarmuka yang sederhana.",
+  image: "/project/kalkulator.png",
+  tags: ["HTML", "CSS", "JavaScript"],
+  link: "https://alfianrapa.github.io/kalkulator/",
+}
 ];
 ---
+  
 <section
     id="projects"
     class="w-full rounded-2xl bg-[var(--card)] p-3 text-[var(--text)] sm:p-5"
@@ -29,16 +48,29 @@
       {projects.map((project) => (
         <article class="rounded-xl bg-[color-mix(in_srgb,var(--text)_5%,transparent)] p-3 sm:p-4">
 
-          <!-- Image -->
-          <div class="h-36 w-full overflow-hidden rounded-lg bg-white sm:h-60 md:h-64">
+    <!-- Image -->
+          <div
+            class={`project-image-frame flex h-36 w-full items-center justify-center overflow-hidden rounded-lg sm:h-60 md:h-64 ${
+              project.id === 1
+                ? "ngecor-frame"
+                : project.id === 2
+                  ? "website-frame"
+                  : "calculator-frame"
+            }`}
+          >
             <img
               src={project.image}
               alt={project.title}
               loading="lazy"
-              class="h-full w-full object-contain"
+              class={
+                project.id === 1
+                  ? "ngecor-image"
+                  : project.id === 2
+                    ? "website-image"
+                    : "calculator-image"
+              }
             />
           </div>
-
           <!-- Project Information -->
           <div class="mt-4 space-y-2">
 

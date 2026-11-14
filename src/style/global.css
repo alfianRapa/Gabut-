@@ -34,3 +34,56 @@ body {
     color: var(--text);
     transition: background-color 0.3s, color 0.3s;
 }
+/* Background utama semua preview */
+.project-image-frame {
+  background: color-mix(
+    in srgb,
+    var(--text) 5%,
+    var(--card)
+  );
+}
+
+/* Ngecor.id */
+.ngecor-frame {
+  background: color-mix(
+    in srgb,
+    var(--text) 5%,
+    var(--card)
+  );
+}
+
+.ngecor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Web Toko */
+.website-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Kalkulator */
+.calculator-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+
+  clip-path: inset(4.1% 12% 4% 12% round 12px);
+
+  filter: drop-shadow(
+    0 8px 18px rgba(0, 0, 0, 0.25)
+  );
+}
